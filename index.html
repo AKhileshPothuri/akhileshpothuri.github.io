@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akhilesh Pothuri - Portfolio</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            margin: 2em auto;
+            max-width: 900px;
+            padding: 0 1em;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #222;
+            margin-bottom: 0.5em;
+            margin-top: 1.5em;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 0.1em;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 1em;
+            font-size: 1.2em;
+            color: #555;
+            font-style: italic;
+        }
+        .contact-info {
+           text-align: center;
+           margin-bottom: 2em;
+        }
+        .contact-info a {
+            margin: 0 0.5em;
+            color: #0077cc;
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 2.5em 0;
+        }
+        ul {
+            padding-left: 20px;
+            list-style-type: disc;
+        }
+        li {
+            margin-bottom: 0.7em;
+        }
+        .job-title, .degree-title {
+            font-weight: bold;
+        }
+        .company-location-date, .institution-location-date {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 0.5em;
+            display: block; /* Ensure it takes its own line */
+        }
+        strong {
+          font-weight: 600; /* Ensure bold stands out */
+        }
+        .skills-category {
+            font-weight: bold;
+        }
+        a {
+            color: #0077cc;
+        }
+        a:hover {
+            color: #005fa3;
+        }
+        .project-title, .award-title {
+            font-weight: bold;
+            display: block; /* Give title its own line if needed */
+            margin-bottom: 0.3em;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Akhilesh Pothuri</h1>
+    <p class="subtitle">Machine Learning Engineer | Data Scientist</p>
+    <p class="contact-info">
+        <a href="tel:+19803710953">(+1) 980-371-0953</a> |
+        <a href="mailto:pothuriakhilesh@yahoo.com">pothuriakhilesh@yahoo.com</a> |
+        <a href="https://www.linkedin.com/in/akhilesh-pothuri/" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
+        <a href="https://github.com/AKhileshPothuri" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </p>
+
+    <hr>
+
+    <h2>About Me</h2>
+    <p>
+        Machine Learning Engineer specializing in Generative AI at Verizon, driving innovation through solutions like <strong>AutoBI</strong> (Text-to-SQL). Expertise in the end-to-end lifecycle of LLMs: architecting <strong>RAG</strong> systems, fine-tuning models (<strong>Gemma, LLAMA</strong>) with <strong>LoRA/QLoRA</strong>, and deploying scalable applications with <strong>PyTorch/JAX, LangChain, FastAPI, Docker,</strong> and <strong>Kubernetes</strong>. Passionate about leveraging data science and machine learning (including <strong>NLP, Computer Vision, Time Series Forecasting, Recommendation Systems</strong>) to solve complex business challenges and deliver measurable impact. Background includes data science roles focusing on <strong>operational analytics, demand forecasting,</strong> and <strong>inventory optimization</strong>, achieving significant <strong>ROI</strong> and efficiency gains using <strong>Python, SQL, Spark, Azure,</strong> and <strong>Power BI/Tableau</strong>. Master's graduate in Data Science from UNC Charlotte.
+    </p>
+
+    <hr>
+
+    <h2>Experience</h2>
+
+    <section>
+        <h3>Verizon</h3>
+        <span class="company-location-date">Machine Learning Engineer - GenAI | Remote, United States | February 2024 - Present</span>
+        <ul>
+            <li>Led the design and development of <strong>AutoBI</strong>, a GenAI-driven Text-to-SQL solution translating natural language into SQL queries, generating visualizations, and automating summaries.</li>
+            <li>Architected the system infrastructure integrating <strong>LLM</strong> models, <strong>retrieval-augmented generation (RAG)</strong>, and semantic search.</li>
+            <li>Fine-tuned <strong>Gemma</strong> and <strong>LLAMA</strong> models using <strong>LORA</strong> and <strong>QLORA</strong> techniques, improving domain-specific accuracy.</li>
+            <li>Conducted hyperparameter tuning and dataset curation using <strong>Hugging Face Transformers</strong> and <strong>PEFT</strong> libraries.</li>
+            <li>Designed scalable training workflows using <strong>PyTorch</strong> and <strong>JAX</strong> for multi-GPU (<strong>NVIDIA H100</strong>) environments.</li>
+            <li>Engineered dynamic agentic workflows using <strong>LangGraph</strong> for prompt orchestration.</li>
+            <li>Implemented <strong>LangChain</strong> pipelines for structured prompt engineering, improving NLP-to-SQL accuracy.</li>
+            <li>Developed a low-latency <strong>FastAPI</strong> layer for concurrent users.</li>
+            <li>Reduced response latency by <strong>30%</strong> through caching and query optimization.</li>
+            <li>Built a robust <strong>CI/CD</strong> pipeline (GitLab, Docker) for <strong>Kubernetes</strong> deployment.</li>
+            <li>Established <strong>KPIs</strong> (relevance scores, response times) for LLM performance evaluation.</li>
+            <li>Implemented <strong>JWT-based</strong> authentication and granular access control.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>UNC Charlotte Football</h3>
+         <span class="company-location-date">Data Scientist | Charlotte, NC | August 2023 - December 2023</span>
+        <ul>
+            <li>Built an automated live tracking system using <strong>Convolutional Neural Networks (CNN)</strong> & <strong>Computer Vision</strong> for player/jersey recognition, saving 5 hours daily.</li>
+            <li>Employed advanced statistical models (<strong>regression, clustering</strong>) to assess player performance.</li>
+            <li>Utilized <strong>SQL</strong> for complex data manipulation and <strong>KPI</strong> calculation.</li>
+            <li>Created data-driven reports and interactive <strong>Tableau</strong> visualizations, leading to a <strong>20%</strong> improvement in team performance.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Hewlett Packard R&D</h3>
+        <span class="company-location-date">Data Scientist | Bangalore, India | February 2020 - July 2022</span>
+        <ul>
+            <li>Led POC project for global call volume analysis using <strong>time series forecasting</strong>, achieving a <strong>28%</strong> MAPE improvement.</li>
+            <li>Conducted <strong>operational analysis</strong> enhancing risk mitigation and resource allocation via predictive analytics.</li>
+            <li>Performed ad-hoc analysis (<strong>Python</strong>), built a <strong>data warehouse</strong>, and optimized <strong>SQL</strong> queries in <strong>BigQuery</strong>.</li>
+            <li>Developed financial models for forecasting & budgeting, improving accuracy by <strong>15%</strong> and reducing errors by <strong>20%</strong>.</li>
+            <li>Built a spare part replacement recommendation engine using <strong>Natural Language Processing (NLP)</strong> (Transformers), reducing wait time to 15s.</li>
+            <li>Fine-tuned a <strong>PyTorch</strong> based <strong>LSTM</strong> model for the recommendation engine.</li>
+            <li>Applied <strong>Dimensionality Reduction</strong> & <strong>One-Class SVM</strong> for anomaly detection.</li>
+            <li>Spearheaded <strong>Demand Forecasting</strong> projects using ABC/XYZ and ADI/CV classification.</li>
+            <li>Optimized <strong>inventory management</strong> through comprehensive demand data analysis (statistics, ML).</li>
+            <li>Employed EDA, feature engineering & modeling (<strong>Python, R</strong>) on demand data, yielding an anticipated <strong>$26M ROI</strong> over 3 years.</li>
+            <li>Automated ETL, training, & evaluation pipelines in <strong>Azure Databricks</strong> & <strong>Azure Data Factory</strong> using <strong>Spark</strong>, saving 120 labor hours monthly.</li>
+            <li>Delivered actionable insights via interactive <strong>PowerBI</strong> dashboards.</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <h2>Skills</h2>
+    <ul>
+        <li><span class="skills-category">Data Science:</span> ETL, Time Series Analysis, Hypothesis Testing, Feature Engineering, Data Analytics, Statistical Analysis, Data Modelling, Data Wrangling, Customer Analytics, Web Analytics, Model Governance</li>
+        <li><span class="skills-category">Machine Learning:</span> Deep Learning, Reinforcement Learning, Neural Networks, Natural Language Processing (NLP), Computer Vision, Clustering, Regression, Classification, Supervised/Unsupervised Learning, Predictive Modelling, Data Mining, LLMs, RAG, Fine-Tuning (LoRA/QLoRA)</li>
+        <li><span class="skills-category">GenAI Tools:</span> LangChain, LangGraph, Hugging Face Transformers, PEFT, Vector Databases (Chroma)</li>
+        <li><span class="skills-category">Operational/Risk Analysis:</span> Process Improvement, Workflow Optimization, KPI Development, Risk Assessment, Risk Mitigation Strategies, Quantitative Analysis, Compliance Management, Scenario Planning</li>
+        <li><span class="skills-category">Programming:</span> Python (Pandas, NumPy, NLTK, Scikit-Learn, Matplotlib, Scipy, PyTorch, TensorFlow, JAX, FastAPI, Polars), R, SQL</li>
+        <li><span class="skills-category">Big Data & Databases:</span> Hadoop, MapReduce, Hive, PySpark, Spark, MySQL, NoSQL, Google BigQuery</li>
+        <li><span class="skills-category">Cloud:</span> Azure (Machine Learning Services, Databricks, Data Factory, Synapse Analytics, SQL Database, DevOps, Kubernetes Service - AKS), AWS (S3), GCP (BigQuery), Docker, Kubernetes</li>
+        <li><span class="skills-category">DevOps:</span> CI/CD, GitLab, Git/GitHub, Version Control</li>
+        <li><span class="skills-category">Data Visualization:</span> PowerBI, Tableau, Looker, Seaborn, Matplotlib, MS Office, Advanced Excel</li>
+    </ul>
+
+    <hr>
+
+    <h2>Projects</h2>
+
+    <section>
+        <h3>localGPT (GitHub Open-Source Contribution)</h3>
+        <ul>
+            <li>Developed a custom JSON loader class within the localGPT project to facilitate document creation and generate embeddings using <strong>Chroma vectorDB</strong>.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Zillow Buyer/Seller Analysis & Recommendations</h3>
+        <ul>
+            <li>Performed <strong>E-commerce Analytics</strong> on real estate data using correlation analysis.</li>
+            <li>Implemented <strong>LightGBM</strong> & <strong>Gradient Boosting</strong> for <strong>Price Prediction</strong>.</li>
+            <li>Contributed to a <strong>Personalized Recommendation System</strong> using <strong>Clustering</strong> and <strong>Collaborative Filtering</strong>, enhanced via <strong>A/B Testing</strong>.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Employee Attrition Prediction</h3>
+        <ul>
+            <li>Applied <strong>Predictive Analytics</strong> and <strong>Machine Learning</strong> for precise <strong>Churn Rate</strong> forecasting.</li>
+            <li>Formulated strategic <strong>Retention Tactics</strong> for enhanced <strong>Employee Engagement</strong>.</li>
+            <li>Conducted in-depth <strong>Churn Analysis</strong> with advanced <strong>Predictive Modeling</strong>.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>AI Enabled Cart Conversion</h3>
+        <ul>
+            <li>Led data preprocessing incorporating <strong>MMM</strong> and <strong>Marketing Attribution Models</strong> for cart abandonment forecasting.</li>
+            <li>Executed <strong>Targeted Campaigns</strong> using ensemble models and <strong>Customer Segmentation</strong>.</li>
+            <li>Developed a real-time dashboard with <strong>Product Insights</strong> and <strong>Attribution Models</strong>.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Credit Fraud Detection</h3>
+        <ul>
+            <li>Utilized <strong>Credit Modelling</strong> with <strong>SHAP</strong> values, ensuring fairness & addressing <strong>Demographic Parities</strong>.</li>
+            <li>Mitigated risks with comprehensive <strong>Model Validation</strong> and <strong>Stress Testing</strong>.</li>
+            <li>Conducted <strong>Fair Lending Analysis</strong>.</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <h2>Education</h2>
+
+    <section>
+         <h3>University of North Carolina at Charlotte</h3>
+         <span class="institution-location-date">Charlotte, North Carolina | August 2022 - December 2023</span>
+         <p><span class="degree-title">Master of Science in Data Science and Business Analytics</span></p>
+    </section>
+
+    <section>
+         <h3>Shiv Nadar University</h3>
+         <span class="institution-location-date">Greater Noida, India | July 2016 - July 2020</span>
+         <p><span class="degree-title">Bachelor of Technology in Computer Science and Engineering</span></p>
+         <p>Minor in Mathematics</p>
+    </section>
+
+    <hr>
+
+    <h2>Awards</h2>
+    <ul>
+        <li><span class="award-title">Third Prize:</span> Reinvent-The-Wheel 2.0 Hackathon (24 hours) hosted by TORQATA & ATD, competing against 20 teams comprising highly experienced data scientists from across the United States. (Nov 2022)</li>
+        <li><span class="award-title">Publication:</span> Akhilesh Pothuri and Pooja Malik. <em>Knowledge graph augmented advanced learning models for commonsense reasoning</em>. In IOP Conference Series: Materials Science and Engineering, volume 1022, page 012038. IOP Publishing, 2021. <a href="https://iopscience.iop.org/article/10.1088/1757-899X/1022/1/012038" target="_blank" rel="noopener noreferrer">[Paper Link]</a></li>
+    </ul>
+
+    <hr>
+
+</body>
+</html>
