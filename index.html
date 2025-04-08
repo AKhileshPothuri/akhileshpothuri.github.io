@@ -4,246 +4,625 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akhilesh Pothuri - Portfolio</title>
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <style>
+        /* Basic Reset & Global Styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Enable smooth scrolling */
+            scroll-padding-top: 60px; /* Offset for fixed header */
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            line-height: 1.6;
-            margin: 2em auto;
-            max-width: 900px;
-            padding: 0 1em;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
             color: #333;
+            background-color: #f9f9f9;
         }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
         h1, h2, h3 {
-            color: #222;
-            margin-bottom: 0.5em;
+            color: #1a1a1a;
+            margin-bottom: 0.8em;
+            line-height: 1.3;
+        }
+
+        h2 {
+            font-size: 2.2em;
             margin-top: 1.5em;
-        }
-        h1 {
             text-align: center;
-            margin-bottom: 0.1em;
-            font-size: 2.5em;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #0077cc; /* Accent color */
+            display: inline-block; /* Make border only as wide as text */
         }
-        .subtitle {
+         /* Center align H2 and its border */
+        section > h2 {
+            display: block; /* Override inline-block for centering */
             text-align: center;
-            margin-top: 0;
-            margin-bottom: 1em;
-            font-size: 1.2em;
-            color: #555;
-            font-style: italic;
+            margin-bottom: 1.5em;
         }
-        .contact-info {
-           text-align: center;
-           margin-bottom: 2em;
+        section > h2::after { /* Create the underline */
+             content: '';
+             display: block;
+             width: 80px; /* Width of the underline */
+             height: 3px;
+             background-color: #0077cc;
+             margin: 8px auto 0; /* Center the underline */
         }
-        .contact-info a {
-            margin: 0 0.5em;
+
+
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid #eee;
+        }
+        section:last-of-type {
+            border-bottom: none;
+        }
+        section:nth-child(even) {
+           /* background-color: #ffffff; /* Optional alternating background */
+        }
+
+        ul {
+            list-style: none; /* Remove default bullets */
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 0.8em;
+            padding-left: 1.2em; /* Space for custom bullet/icon */
+            position: relative;
+        }
+         /* Custom bullet points for lists inside cards/sections */
+        .content-section ul li::before {
+            content: '•'; /* Bullet character */
+            color: #0077cc; /* Accent color */
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1.2em; /* Position left */
+            position: absolute;
+            left: 0;
+        }
+
+
+        a {
             color: #0077cc;
             text-decoration: none;
         }
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-        hr {
-            border: 0;
-            height: 1px;
-            background: #ddd;
-            margin: 2.5em 0;
-        }
-        ul {
-            padding-left: 20px;
-            list-style-type: disc;
-        }
-        li {
-            margin-bottom: 0.7em;
-        }
-        .job-title, .degree-title {
-            font-weight: bold;
-        }
-        .company-location-date, .institution-location-date {
-            font-style: italic;
-            color: #555;
-            margin-bottom: 0.5em;
-            display: block; /* Ensure it takes its own line */
-        }
-        strong {
-          font-weight: 600; /* Ensure bold stands out */
-        }
-        .skills-category {
-            font-weight: bold;
-        }
-        a {
-            color: #0077cc;
-        }
+
         a:hover {
             color: #005fa3;
+            text-decoration: underline;
         }
-        .project-title, .award-title {
+
+        strong {
+          font-weight: 600;
+        }
+
+        /* Header & Navigation */
+        .main-header {
+            background-color: #fff;
+            color: #333;
+            padding: 10px 0;
+            position: sticky; /* Make header sticky */
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
             font-weight: bold;
-            display: block; /* Give title its own line if needed */
+            color: #1a1a1a;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .main-nav ul li {
+            margin-left: 25px;
+             margin-bottom: 0; /* Override default li margin */
+             padding-left: 0; /* Override default li padding */
+        }
+        .main-nav ul li::before {
+             content: none; /* Remove custom bullet from nav */
+        }
+
+
+        .main-nav a {
+            color: #333;
+            font-weight: 500;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .main-nav a:hover, .main-nav a.active { /* Add .active class later with JS if needed */
+            color: #0077cc;
+            border-bottom-color: #0077cc;
+            text-decoration: none;
+        }
+
+        /* Hero Section (#home) */
+        #home {
+            background: linear-gradient(to right, #e0f7fa, #b2ebf2); /* Light blue gradient */
+            color: #1a1a1a;
+            text-align: center;
+            padding: 80px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh; /* Make it take up significant viewport height */
+        }
+        .hero-content {
+            max-width: 700px;
+        }
+        #home h1 {
+            font-size: 3em;
             margin-bottom: 0.3em;
         }
+        .job-title-hero {
+            font-size: 1.6em;
+            margin-bottom: 1em;
+            color: #0077cc; /* Accent color for title */
+            font-weight: 500;
+        }
+        .profile-pic-placeholder { /* Basic style for placeholder */
+            width: 180px;
+            height: 180px;
+            background-color: #ccc;
+            border-radius: 50%;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 0.9em;
+            border: 5px solid #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+         #home img { /* Style if using an actual image */
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 20px auto;
+            border: 5px solid #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            object-fit: cover; /* Ensure image covers the area */
+        }
+
+        .social-links {
+            margin-top: 25px;
+        }
+        .social-links a {
+            color: #1a1a1a;
+            font-size: 1.8em; /* Larger icons */
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: #0077cc; /* Accent color on hover */
+            text-decoration: none;
+        }
+
+        /* About Section */
+        #about {
+            text-align: left; /* Reset text align if needed */
+             max-width: 800px; /* Narrower content for readability */
+             margin-left: auto;
+             margin-right: auto;
+        }
+        #about p {
+            font-size: 1.1em;
+            margin-bottom: 1em;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* Space between items */
+            justify-content: center;
+        }
+        .skill-item {
+            background-color: #fff;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            text-align: center;
+            flex-basis: calc(20% - 20px); /* Adjust basis for number of columns (e.g., 5 columns) */
+            min-width: 150px; /* Minimum width before wrapping */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .skill-item:hover {
+             transform: translateY(-5px);
+             box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+        .skill-item i { /* Style icons */
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #0077cc; /* Accent color */
+        }
+        .skill-item span {
+            display: block;
+            font-weight: 500;
+        }
+
+        /* Experience, Projects, Education Cards */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+            gap: 30px;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex; /* Use flexbox for vertical layout */
+            flex-direction: column;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+        .card h3 {
+            font-size: 1.4em;
+            color: #005fa3; /* Darker accent for card titles */
+            margin-bottom: 0.3em;
+        }
+        .card-subtitle {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+        .card ul {
+             flex-grow: 1; /* Allow list to take up remaining space */
+             margin-top: 10px;
+        }
+        .card li {
+            font-size: 0.95em;
+             padding-left: 1.2em; /* Ensure space for bullet */
+        }
+         /* Use default bullets for card lists if preferred over custom */
+        /* .card li::before { content: none; }
+        .card ul { list-style: disc; padding-left: 20px; } */
+
+
+        /* Awards Section */
+        #awards ul li {
+            background-color: #fff;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.07);
+            margin-bottom: 15px;
+             padding-left: 40px; /* More space for icon */
+        }
+         #awards ul li::before {
+             content: "\f091"; /* Font Awesome trophy icon */
+             font-family: "Font Awesome 6 Free";
+             font-weight: 900;
+             color: #ffc107; /* Gold color */
+             font-size: 1.1em;
+             left: 15px; /* Position icon */
+             top: 14px;
+         }
+        .award-title {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Footer */
+        .main-footer {
+            background-color: #333;
+            color: #eee;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+        }
+        .main-footer p {
+            margin-bottom: 0;
+        }
+         .footer-links a {
+             color: #eee;
+             margin: 0 10px;
+             font-size: 1.5em;
+             transition: color 0.3s ease;
+         }
+         .footer-links a:hover {
+             color: #00aaff; /* Lighter blue for footer hover */
+         }
+
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .main-header .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .main-nav ul {
+                margin-top: 10px;
+                justify-content: center;
+                flex-wrap: wrap; /* Allow nav items to wrap */
+            }
+            .main-nav ul li {
+                 margin: 5px 10px; /* Adjust spacing for wrapped items */
+             }
+
+            #home h1 {
+                font-size: 2.5em;
+            }
+            .job-title-hero {
+                font-size: 1.3em;
+            }
+            h2 {
+                font-size: 1.8em;
+            }
+            .skills-grid {
+                justify-content: center; /* Center items when wrapped */
+            }
+            .skill-item {
+                flex-basis: calc(33.33% - 20px); /* Example: 3 columns on smaller screens */
+                 min-width: 120px;
+            }
+            .card-container {
+                 grid-template-columns: 1fr; /* Stack cards */
+             }
+        }
+         @media (max-width: 480px) {
+              .skill-item {
+                 flex-basis: calc(50% - 20px); /* Example: 2 columns on very small screens */
+             }
+             .main-nav ul li {
+                 margin: 5px 8px;
+             }
+             .social-links a {
+                 font-size: 1.5em;
+                 margin: 0 10px;
+             }
+         }
 
     </style>
 </head>
 <body>
 
-    <h1>Akhilesh Pothuri</h1>
-    <p class="subtitle">Machine Learning Engineer | Data Scientist</p>
-    <p class="contact-info">
-        <a href="tel:+19803710953">(+1) 980-371-0953</a> |
-        <a href="mailto:pothuriakhilesh@yahoo.com">pothuriakhilesh@yahoo.com</a> |
-        <a href="https://www.linkedin.com/in/akhilesh-pothuri/" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
-        <a href="https://github.com/AKhileshPothuri" target="_blank" rel="noopener noreferrer">GitHub</a>
-    </p>
+    <!-- Header & Navigation -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">Akhilesh Pothuri</div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#awards">Awards</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <hr>
+    <main>
+        <!-- Home Section -->
+        <section id="home">
+            <div class="hero-content">
+                 <!-- Optional: Add your profile picture here -->
+                 <!-- Example: <img src="your_image_url.jpg" alt="Akhilesh Pothuri"> -->
+                 <div class="profile-pic-placeholder">Add Profile Pic</div>
 
-    <h2>About Me</h2>
-    <p>
-        Machine Learning Engineer specializing in Generative AI at Verizon, driving innovation through solutions like <strong>AutoBI</strong> (Text-to-SQL). Expertise in the end-to-end lifecycle of LLMs: architecting <strong>RAG</strong> systems, fine-tuning models (<strong>Gemma, LLAMA</strong>) with <strong>LoRA/QLoRA</strong>, and deploying scalable applications with <strong>PyTorch/JAX, LangChain, FastAPI, Docker,</strong> and <strong>Kubernetes</strong>. Passionate about leveraging data science and machine learning (including <strong>NLP, Computer Vision, Time Series Forecasting, Recommendation Systems</strong>) to solve complex business challenges and deliver measurable impact. Background includes data science roles focusing on <strong>operational analytics, demand forecasting,</strong> and <strong>inventory optimization</strong>, achieving significant <strong>ROI</strong> and efficiency gains using <strong>Python, SQL, Spark, Azure,</strong> and <strong>Power BI/Tableau</strong>. Master's graduate in Data Science from UNC Charlotte.
-    </p>
+                <h1>Akhilesh Pothuri</h1>
+                <p class="job-title-hero">Machine Learning Engineer | Data Scientist</p>
+                <p>Specializing in Generative AI, NLP, Computer Vision, and building data-driven solutions.</p>
+                <div class="social-links">
+                    <a href="tel:+19803710953" aria-label="Phone"><i class="fas fa-phone"></i></a>
+                    <a href="mailto:pothuriakhilesh@yahoo.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/akhilesh-pothuri/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/AKhileshPothuri" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </section>
 
-    <hr>
+        <!-- About Section -->
+        <section id="about" class="container content-section">
+            <h2>About Me</h2>
+            <p>
+                Machine Learning Engineer specializing in Generative AI at Verizon, driving innovation through solutions like <strong>AutoBI</strong> (Text-to-SQL). Expertise in the end-to-end lifecycle of LLMs: architecting <strong>RAG</strong> systems, fine-tuning models (<strong>Gemma, LLAMA</strong>) with <strong>LoRA/QLoRA</strong>, and deploying scalable applications with <strong>PyTorch/JAX, LangChain, FastAPI, Docker,</strong> and <strong>Kubernetes</strong>.
+            </p>
+             <p>
+                 Passionate about leveraging data science and machine learning (including <strong>NLP, Computer Vision, Time Series Forecasting, Recommendation Systems</strong>) to solve complex business challenges and deliver measurable impact. Background includes data science roles focusing on <strong>operational analytics, demand forecasting,</strong> and <strong>inventory optimization</strong>, achieving significant <strong>ROI</strong> and efficiency gains using <strong>Python, SQL, Spark, Azure,</strong> and <strong>Power BI/Tableau</strong>. Master's graduate in Data Science from UNC Charlotte.
+             </p>
+        </section>
 
-    <h2>Experience</h2>
+        <!-- Skills Section -->
+        <section id="skills" class="container content-section">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <!-- Add relevant Font Awesome icons (fas or fab) -->
+                <div class="skill-item"><i class="fas fa-brain"></i><span>GenAI (LLMs, RAG)</span></div>
+                <div class="skill-item"><i class="fas fa-cogs"></i><span>Fine-Tuning (LoRA)</span></div>
+                <div class="skill-item"><i class="fab fa-python"></i><span>Python</span></div>
+                <div class="skill-item"><i class="fas fa-database"></i><span>SQL</span></div>
+                <div class="skill-item"><i class="fas fa-code"></i><span>PyTorch / JAX</span></div>
+                <div class="skill-item"><i class="fas fa-project-diagram"></i><span>LangChain / LangGraph</span></div>
+                <div class="skill-item"><i class="fas fa-robot"></i><span>ML (General)</span></div>
+                <div class="skill-item"><i class="fas fa-comments"></i><span>NLP</span></div>
+                 <div class="skill-item"><i class="fas fa-eye"></i><span>Computer Vision</span></div>
+                <div class="skill-item"><i class="fas fa-chart-line"></i><span>Time Series</span></div>
+                <div class="skill-item"><i class="fas fa-cloud"></i><span>Azure</span></div>
+                <div class="skill-item"><i class="fab fa-aws"></i><span>AWS</span></div>
+                 <div class="skill-item"><i class="fas fa-database"></i><span>Spark / BigQuery</span></div>
+                <div class="skill-item"><i class="fab fa-docker"></i><span>Docker</span></div>
+                <div class="skill-item"><i class="fas fa-dharmachakra"></i><span>Kubernetes</span></div>
+                <div class="skill-item"><i class="fas fa-server"></i><span>FastAPI</span></div>
+                <div class="skill-item"><i class="fas fa-chart-pie"></i><span>Power BI / Tableau</span></div>
+                <div class="skill-item"><i class="fab fa-git-alt"></i><span>Git / GitHub</span></div>
+            </div>
+        </section>
 
-    <section>
-        <h3>Verizon</h3>
-        <span class="company-location-date">Machine Learning Engineer - GenAI | Remote, United States | February 2024 - Present</span>
-        <ul>
-            <li>Led the design and development of <strong>AutoBI</strong>, a GenAI-driven Text-to-SQL solution translating natural language into SQL queries, generating visualizations, and automating summaries.</li>
-            <li>Architected the system infrastructure integrating <strong>LLM</strong> models, <strong>retrieval-augmented generation (RAG)</strong>, and semantic search.</li>
-            <li>Fine-tuned <strong>Gemma</strong> and <strong>LLAMA</strong> models using <strong>LORA</strong> and <strong>QLORA</strong> techniques, improving domain-specific accuracy.</li>
-            <li>Conducted hyperparameter tuning and dataset curation using <strong>Hugging Face Transformers</strong> and <strong>PEFT</strong> libraries.</li>
-            <li>Designed scalable training workflows using <strong>PyTorch</strong> and <strong>JAX</strong> for multi-GPU (<strong>NVIDIA H100</strong>) environments.</li>
-            <li>Engineered dynamic agentic workflows using <strong>LangGraph</strong> for prompt orchestration.</li>
-            <li>Implemented <strong>LangChain</strong> pipelines for structured prompt engineering, improving NLP-to-SQL accuracy.</li>
-            <li>Developed a low-latency <strong>FastAPI</strong> layer for concurrent users.</li>
-            <li>Reduced response latency by <strong>30%</strong> through caching and query optimization.</li>
-            <li>Built a robust <strong>CI/CD</strong> pipeline (GitLab, Docker) for <strong>Kubernetes</strong> deployment.</li>
-            <li>Established <strong>KPIs</strong> (relevance scores, response times) for LLM performance evaluation.</li>
-            <li>Implemented <strong>JWT-based</strong> authentication and granular access control.</li>
-        </ul>
-    </section>
+        <!-- Experience Section -->
+        <section id="experience" class="container content-section">
+            <h2>Experience</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Verizon</h3>
+                    <span class="card-subtitle">Machine Learning Engineer - GenAI | Remote, US | Feb 2024 - Present</span>
+                    <ul>
+                        <li>Led design & development of <strong>AutoBI</strong> (GenAI Text-to-SQL solution).</li>
+                        <li>Architected infrastructure integrating <strong>LLMs, RAG</strong>, semantic search.</li>
+                        <li>Fine-tuned <strong>Gemma/LLAMA</strong> using <strong>LORA/QLORA</strong> (Hugging Face, PEFT).</li>
+                        <li>Designed scalable training workflows (<strong>PyTorch, JAX</strong>) on multi-GPU (H100).</li>
+                        <li>Engineered agentic workflows (<strong>LangGraph</strong>), LangChain pipelines.</li>
+                        <li>Developed low-latency <strong>FastAPI</strong> layer & robust <strong>CI/CD</strong> (Docker, K8s).</li>
+                        <li>Reduced latency by <strong>30%</strong>; established LLM KPIs; implemented JWT security.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>UNC Charlotte Football</h3>
+                    <span class="card-subtitle">Data Scientist | Charlotte, NC | Aug 2023 - Dec 2023</span>
+                    <ul>
+                        <li>Built automated live tracking system (<strong>CNN, Computer Vision</strong>), saving 5 hrs daily.</li>
+                        <li>Used statistical models (<strong>regression, clustering</strong>) for player assessment.</li>
+                        <li>Utilized <strong>SQL</strong> for complex data manipulation & KPI calculation.</li>
+                        <li>Created <strong>Tableau</strong> reports, improving team performance by <strong>20%</strong>.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Hewlett Packard R&D</h3>
+                    <span class="card-subtitle">Data Scientist | Bangalore, India | Feb 2020 - Jul 2022</span>
+                    <ul>
+                        <li>Led time series forecasting POC (<strong>28% MAPE boost</strong>).</li>
+                        <li>Conducted operational analysis, predictive analytics for supply chain.</li>
+                        <li>Built data warehouse & optimized SQL in <strong>BigQuery</strong>.</li>
+                        <li>Developed financial models (<strong>15% budget accuracy</strong>, 20% error reduction).</li>
+                        <li>Built NLP recommendation engine (Transformers, LSTM), reducing wait time to 15s.</li>
+                        <li>Spearheaded <strong>Demand Forecasting</strong> (ABC/XYZ, ADI/CV), projected <strong>$26M ROI</strong>.</li>
+                        <li>Automated ETL (<strong>Azure Databricks/ADF, Spark</strong>), saving 120 hrs/month.</li>
+                        <li>Delivered insights via interactive <strong>PowerBI</strong> dashboards.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-    <section>
-        <h3>UNC Charlotte Football</h3>
-         <span class="company-location-date">Data Scientist | Charlotte, NC | August 2023 - December 2023</span>
-        <ul>
-            <li>Built an automated live tracking system using <strong>Convolutional Neural Networks (CNN)</strong> & <strong>Computer Vision</strong> for player/jersey recognition, saving 5 hours daily.</li>
-            <li>Employed advanced statistical models (<strong>regression, clustering</strong>) to assess player performance.</li>
-            <li>Utilized <strong>SQL</strong> for complex data manipulation and <strong>KPI</strong> calculation.</li>
-            <li>Created data-driven reports and interactive <strong>Tableau</strong> visualizations, leading to a <strong>20%</strong> improvement in team performance.</li>
-        </ul>
-    </section>
+        <!-- Projects Section -->
+        <section id="projects" class="container content-section">
+            <h2>Projects</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>localGPT Contribution</h3>
+                     <span class="card-subtitle">Open Source</span>
+                    <ul>
+                        <li>Developed custom JSON loader class using <strong>Chroma vectorDB</strong> for embedding generation.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Zillow Analysis & Recommendations</h3>
+                     <span class="card-subtitle">Real Estate Analytics</span>
+                    <ul>
+                        <li>Performed E-commerce Analytics, correlation analysis.</li>
+                        <li>Implemented <strong>LightGBM/Gradient Boosting</strong> for Price Prediction.</li>
+                        <li>Built Recommendation System (<strong>Clustering, Collaborative Filtering, A/B Testing</strong>).</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Employee Attrition Prediction</h3>
+                     <span class="card-subtitle">HR Analytics</span>
+                    <ul>
+                        <li>Applied Predictive Analytics for <strong>Churn Rate</strong> forecasting.</li>
+                        <li>Formulated strategic <strong>Retention Tactics</strong>.</li>
+                        <li>Conducted in-depth Churn Analysis with Predictive Modeling.</li>
+                    </ul>
+                </div>
+                 <div class="card">
+                    <h3>AI Enabled Cart Conversion</h3>
+                     <span class="card-subtitle">Marketing Analytics</span>
+                    <ul>
+                        <li>Incorporated <strong>MMM</strong> and <strong>Marketing Attribution Models</strong>.</li>
+                        <li>Executed Targeted Campaigns (Ensemble models, Customer Segmentation).</li>
+                        <li>Developed real-time dashboard with Product Insights.</li>
+                    </ul>
+                </div>
+                 <div class="card">
+                    <h3>Credit Fraud Detection</h3>
+                     <span class="card-subtitle">FinTech Analytics</span>
+                    <ul>
+                        <li>Utilized Credit Modelling with <strong>SHAP</strong> values, addressed Demographic Parities.</li>
+                        <li>Performed <strong>Model Validation</strong> and <strong>Stress Testing</strong>.</li>
+                        <li>Conducted <strong>Fair Lending Analysis</strong>.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-    <section>
-        <h3>Hewlett Packard R&D</h3>
-        <span class="company-location-date">Data Scientist | Bangalore, India | February 2020 - July 2022</span>
-        <ul>
-            <li>Led POC project for global call volume analysis using <strong>time series forecasting</strong>, achieving a <strong>28%</strong> MAPE improvement.</li>
-            <li>Conducted <strong>operational analysis</strong> enhancing risk mitigation and resource allocation via predictive analytics.</li>
-            <li>Performed ad-hoc analysis (<strong>Python</strong>), built a <strong>data warehouse</strong>, and optimized <strong>SQL</strong> queries in <strong>BigQuery</strong>.</li>
-            <li>Developed financial models for forecasting & budgeting, improving accuracy by <strong>15%</strong> and reducing errors by <strong>20%</strong>.</li>
-            <li>Built a spare part replacement recommendation engine using <strong>Natural Language Processing (NLP)</strong> (Transformers), reducing wait time to 15s.</li>
-            <li>Fine-tuned a <strong>PyTorch</strong> based <strong>LSTM</strong> model for the recommendation engine.</li>
-            <li>Applied <strong>Dimensionality Reduction</strong> & <strong>One-Class SVM</strong> for anomaly detection.</li>
-            <li>Spearheaded <strong>Demand Forecasting</strong> projects using ABC/XYZ and ADI/CV classification.</li>
-            <li>Optimized <strong>inventory management</strong> through comprehensive demand data analysis (statistics, ML).</li>
-            <li>Employed EDA, feature engineering & modeling (<strong>Python, R</strong>) on demand data, yielding an anticipated <strong>$26M ROI</strong> over 3 years.</li>
-            <li>Automated ETL, training, & evaluation pipelines in <strong>Azure Databricks</strong> & <strong>Azure Data Factory</strong> using <strong>Spark</strong>, saving 120 labor hours monthly.</li>
-            <li>Delivered actionable insights via interactive <strong>PowerBI</strong> dashboards.</li>
-        </ul>
-    </section>
+        <!-- Education Section -->
+        <section id="education" class="container content-section">
+            <h2>Education</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>University of North Carolina at Charlotte</h3>
+                    <span class="card-subtitle">Charlotte, NC | Aug 2022 - Dec 2023</span>
+                    <p><strong>Master of Science in Data Science and Business Analytics</strong></p>
+                </div>
+                <div class="card">
+                    <h3>Shiv Nadar University</h3>
+                    <span class="card-subtitle">Greater Noida, India | Jul 2016 - Jul 2020</span>
+                    <p><strong>Bachelor of Technology in Computer Science and Engineering</strong></p>
+                    <p>Minor in Mathematics</p>
+                </div>
+            </div>
+        </section>
 
-    <hr>
+         <!-- Awards Section -->
+        <section id="awards" class="container content-section">
+            <h2>Awards</h2>
+            <ul>
+                <li>
+                    <span class="award-title">Third Prize:</span> Reinvent-The-Wheel 2.0 Hackathon (24 hours) hosted by TORQATA & ATD (Nov 2022).
+                </li>
+                <li>
+                     <span class="award-title">Publication:</span> Akhilesh Pothuri and Pooja Malik. <em>Knowledge graph augmented advanced learning models for commonsense reasoning</em>. IOP Conference Series: Materials Science and Engineering, vol 1022, 2021. <a href="https://iopscience.iop.org/article/10.1088/1757-899X/1022/1/012038" target="_blank" rel="noopener noreferrer">[Paper Link]</a>
+                </li>
+            </ul>
+        </section>
 
-    <h2>Skills</h2>
-    <ul>
-        <li><span class="skills-category">Data Science:</span> ETL, Time Series Analysis, Hypothesis Testing, Feature Engineering, Data Analytics, Statistical Analysis, Data Modelling, Data Wrangling, Customer Analytics, Web Analytics, Model Governance</li>
-        <li><span class="skills-category">Machine Learning:</span> Deep Learning, Reinforcement Learning, Neural Networks, Natural Language Processing (NLP), Computer Vision, Clustering, Regression, Classification, Supervised/Unsupervised Learning, Predictive Modelling, Data Mining, LLMs, RAG, Fine-Tuning (LoRA/QLoRA)</li>
-        <li><span class="skills-category">GenAI Tools:</span> LangChain, LangGraph, Hugging Face Transformers, PEFT, Vector Databases (Chroma)</li>
-        <li><span class="skills-category">Operational/Risk Analysis:</span> Process Improvement, Workflow Optimization, KPI Development, Risk Assessment, Risk Mitigation Strategies, Quantitative Analysis, Compliance Management, Scenario Planning</li>
-        <li><span class="skills-category">Programming:</span> Python (Pandas, NumPy, NLTK, Scikit-Learn, Matplotlib, Scipy, PyTorch, TensorFlow, JAX, FastAPI, Polars), R, SQL</li>
-        <li><span class="skills-category">Big Data & Databases:</span> Hadoop, MapReduce, Hive, PySpark, Spark, MySQL, NoSQL, Google BigQuery</li>
-        <li><span class="skills-category">Cloud:</span> Azure (Machine Learning Services, Databricks, Data Factory, Synapse Analytics, SQL Database, DevOps, Kubernetes Service - AKS), AWS (S3), GCP (BigQuery), Docker, Kubernetes</li>
-        <li><span class="skills-category">DevOps:</span> CI/CD, GitLab, Git/GitHub, Version Control</li>
-        <li><span class="skills-category">Data Visualization:</span> PowerBI, Tableau, Looker, Seaborn, Matplotlib, MS Office, Advanced Excel</li>
-    </ul>
+    </main>
 
-    <hr>
-
-    <h2>Projects</h2>
-
-    <section>
-        <h3>localGPT (GitHub Open-Source Contribution)</h3>
-        <ul>
-            <li>Developed a custom JSON loader class within the localGPT project to facilitate document creation and generate embeddings using <strong>Chroma vectorDB</strong>.</li>
-        </ul>
-    </section>
-
-    <section>
-        <h3>Zillow Buyer/Seller Analysis & Recommendations</h3>
-        <ul>
-            <li>Performed <strong>E-commerce Analytics</strong> on real estate data using correlation analysis.</li>
-            <li>Implemented <strong>LightGBM</strong> & <strong>Gradient Boosting</strong> for <strong>Price Prediction</strong>.</li>
-            <li>Contributed to a <strong>Personalized Recommendation System</strong> using <strong>Clustering</strong> and <strong>Collaborative Filtering</strong>, enhanced via <strong>A/B Testing</strong>.</li>
-        </ul>
-    </section>
-
-    <section>
-        <h3>Employee Attrition Prediction</h3>
-        <ul>
-            <li>Applied <strong>Predictive Analytics</strong> and <strong>Machine Learning</strong> for precise <strong>Churn Rate</strong> forecasting.</li>
-            <li>Formulated strategic <strong>Retention Tactics</strong> for enhanced <strong>Employee Engagement</strong>.</li>
-            <li>Conducted in-depth <strong>Churn Analysis</strong> with advanced <strong>Predictive Modeling</strong>.</li>
-        </ul>
-    </section>
-
-    <section>
-        <h3>AI Enabled Cart Conversion</h3>
-        <ul>
-            <li>Led data preprocessing incorporating <strong>MMM</strong> and <strong>Marketing Attribution Models</strong> for cart abandonment forecasting.</li>
-            <li>Executed <strong>Targeted Campaigns</strong> using ensemble models and <strong>Customer Segmentation</strong>.</li>
-            <li>Developed a real-time dashboard with <strong>Product Insights</strong> and <strong>Attribution Models</strong>.</li>
-        </ul>
-    </section>
-
-    <section>
-        <h3>Credit Fraud Detection</h3>
-        <ul>
-            <li>Utilized <strong>Credit Modelling</strong> with <strong>SHAP</strong> values, ensuring fairness & addressing <strong>Demographic Parities</strong>.</li>
-            <li>Mitigated risks with comprehensive <strong>Model Validation</strong> and <strong>Stress Testing</strong>.</li>
-            <li>Conducted <strong>Fair Lending Analysis</strong>.</li>
-        </ul>
-    </section>
-
-    <hr>
-
-    <h2>Education</h2>
-
-    <section>
-         <h3>University of North Carolina at Charlotte</h3>
-         <span class="institution-location-date">Charlotte, North Carolina | August 2022 - December 2023</span>
-         <p><span class="degree-title">Master of Science in Data Science and Business Analytics</span></p>
-    </section>
-
-    <section>
-         <h3>Shiv Nadar University</h3>
-         <span class="institution-location-date">Greater Noida, India | July 2016 - July 2020</span>
-         <p><span class="degree-title">Bachelor of Technology in Computer Science and Engineering</span></p>
-         <p>Minor in Mathematics</p>
-    </section>
-
-    <hr>
-
-    <h2>Awards</h2>
-    <ul>
-        <li><span class="award-title">Third Prize:</span> Reinvent-The-Wheel 2.0 Hackathon (24 hours) hosted by TORQATA & ATD, competing against 20 teams comprising highly experienced data scientists from across the United States. (Nov 2022)</li>
-        <li><span class="award-title">Publication:</span> Akhilesh Pothuri and Pooja Malik. <em>Knowledge graph augmented advanced learning models for commonsense reasoning</em>. In IOP Conference Series: Materials Science and Engineering, volume 1022, page 012038. IOP Publishing, 2021. <a href="https://iopscience.iop.org/article/10.1088/1757-899X/1022/1/012038" target="_blank" rel="noopener noreferrer">[Paper Link]</a></li>
-    </ul>
-
-    <hr>
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+             <div class="footer-links social-links"> <!-- Re-use social links style for consistency -->
+                    <a href="https://www.linkedin.com/in/akhilesh-pothuri/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/AKhileshPothuri" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:pothuriakhilesh@yahoo.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            <p>© <script>document.write(new Date().getFullYear())</script> Akhilesh Pothuri. All rights reserved.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
